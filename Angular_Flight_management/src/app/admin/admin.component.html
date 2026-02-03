@@ -1,0 +1,46 @@
+<div class="admin-wrapper">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>Admin Panel</h3>
+        </div>
+        <ul class="nav-links">
+            <li><a routerLink="/admin" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><i
+                        class="fas fa-chart-line"></i> Dashboard</a></li>
+            <li><a routerLink="manage-flights" routerLinkActive="active"><i class="fas fa-plane"></i> Manage Flights</a>
+            </li>
+            <li><a routerLink="add-flight" routerLinkActive="active"><i class="fas fa-plus-circle"></i> Add Flight</a>
+            </li>
+            <li><a routerLink="/home"><i class="fas fa-home"></i> Back to Home</a></li>
+        </ul>
+    </nav>
+    <main class="content">
+        <!-- Show Dashboard stats only if on the exact admin route -->
+        <div *ngIf="router.url === '/admin'" class="dashboard-stats">
+            <h2>Dashboard Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-plane-departure"></i>
+                    <div class="stat-info">
+                        <h4>Total Flights</h4>
+                        <p class="stat-value">{{ stats.totalFlights }}</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="stat-info">
+                        <h4>Destinations</h4>
+                        <p class="stat-value">{{ stats.destinations }}</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="far fa-clock"></i>
+                    <div class="stat-info">
+                        <h4>Next Flight</h4>
+                        <p class="stat-value">{{ stats.nextFlight }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <router-outlet></router-outlet>
+    </main>
+</div>

@@ -1,0 +1,44 @@
+<div class="home-container">
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Travel the World with Ease</h1>
+            <p>Book your next adventure today and experience comfort in the clouds.</p>
+            <a routerLink="/flights" class="cta-button">Book Now</a>
+        </div>
+    </section>
+
+    <section class="featured">
+        <h2>Popular Destinations</h2>
+        <div class="card-grid">
+            <div class="card" *ngFor="let dest of featuredDestinations">
+                <img [src]="dest.image" [alt]="dest.city" class="card-img">
+                <div class="card-content">
+                    <h3>{{ dest.city }}</h3>
+                    <p>{{ dest.description }}</p>
+                    <div class="card-footer">
+                        <span class="price">From {{ dest.price }}</span>
+                        <button class="book-btn" routerLink="/flights">Explore</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature-item">
+            <i class="fas fa-plane-departure"></i>
+            <h3>Easy Booking</h3>
+            <p>Streamlined process to get you in the air faster.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-tags"></i>
+            <h3>Best Prices</h3>
+            <p>We guarantee the lowest fares for your travel.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-headset"></i>
+            <h3>24/7 Support</h3>
+            <p>Our team is always here to help you.</p>
+        </div>
+    </section>
+</div>

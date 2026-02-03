@@ -1,0 +1,24 @@
+<h3>{{ isEditMode ? 'Edit Flight' : 'Add New Flight' }}</h3>
+<form (ngSubmit)="saveFlight()">
+    <div>
+        <label>Flight No:</label>
+        <input type="text" [(ngModel)]="flightNo" name="flightNo" required>
+    </div>
+    <div>
+        <label>Origin:</label>
+        <input type="text" [(ngModel)]="origin" name="origin" required>
+    </div>
+    <div>
+        <label>Destination:</label>
+        <input type="text" [(ngModel)]="destination" name="destination" required>
+    </div>
+    <div>
+        <label>Date:</label>
+        <input type="date" [(ngModel)]="date" name="date" required>
+    </div>
+    <div>
+        <label>Time:</label>
+        <input type="time" [(ngModel)]="time" name="time" required>
+    </div>
+    <button type="submit">{{ isEditMode ? 'Update Flight' : 'Add Flight' }}</button>
+</form>

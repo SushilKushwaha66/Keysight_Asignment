@@ -1,0 +1,70 @@
+<div class="manage-container">
+    <div class="header-actions">
+        <h3>Manage Flights</h3>
+        <div class="controls">
+            <input type="text" placeholder="Search flights..." [(ngModel)]="searchText" (input)="filterFlights()"
+                class="search-input">
+            <div class="view-toggles">
+                <button (click)="viewMode = 'table'" [class.active]="viewMode === 'table'"><i class="fas fa-list"></i>
+                    Table</button>
+                <button (click)="viewMode = 'card'" [class.active]="viewMode === 'card'"><i class="fas fa-th-large"></i>
+                    Card</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Table View -->
+    <table *ngIf="viewMode === 'table'" class="flight-table">
+        <thead>
+            <tr>
+                <th>Flight No</th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let flight of filteredFlights">
+                <td>{{ flight.flightNo }}</td>
+                <td>{{ flight.origin }}</td>
+                <td>{{ flight.destination }}</td>
+                <td>{{ flight.date }}</td>
+                <td>{{ flight.time }}</td>
+                <td class="actions-cell">
+                    <button class="btn-edit" (click)="editFlight(flight.id)">Edit</button>
+                    <button class="btn-delete" (click)="deleteFlight(flight.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Card View -->
+    <div *ngIf="viewMode === 'card'" class="flight-grid">
+        <div class="flight-card" *ngFor="let flight of filteredFlights">
+            <div class="card-header">
+                <span class="flight-no">{{ flight.flightNo }}</span>
+                <div class="actions">
+                    <button class="icon-btn edit" (click)="editFlight(flight.id)"><i class="fas fa-edit"></i></button>
+                    <button class="icon-btn delete" (click)="deleteFlight(flight.id)"><i
+                            class="fas fa-trash"></i></button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="route">
+                    <span class="city">{{ flight.origin }}</span>
+                    <i class="fas fa-arrow-right"></i>
+                    <span class="city">{{ flight.destination }}</span>
+                </div>
+                <div class="time-info">
+                    <p><i class="far fa-calendar-alt"></i> {{ flight.date }}</p>
+                    <p><i class="far fa-clock"></i> {{ flight.time }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="flights.length === 0">
+    <p>No flights available.</p>
+</div>

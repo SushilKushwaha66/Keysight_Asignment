@@ -1,0 +1,40 @@
+.box {
+            margin: 100px auto;
+            border: 5px solid rgb(94, 122, 187); 
+            text-align: center;
+            width: fit-content;
+            margin-left: 90%;
+            padding: 20px;
+          }
+
+          .card {
+            padding: 1em;
+            margin: 10px;
+            display: inline-block;
+          }
+
+          button {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: black;
+            font-size: 16px;
+          }
+
+          .FlightInfo{
+             margin-top: -59%;
+            border: 5px solid rgb(94, 122, 187); 
+            text-align: center;
+            width: 200px;
+            margin-left: 90%;
+            padding: 20px;
+          }
+
+
+           .form-box {
+                     width: 40%;
+                     padding: 70px;
+                     border: 2px solid #ccc;
+                     border-radius: 10px;
+                     background-color: #f9f9f9;
+                     margin: 20px;
+                   } 
